@@ -1,7 +1,7 @@
 class kkkChat {
 	constructor(props){
 		props = props || {};
-		var application = this;
+		var _app = this;
 		this.dataCountry = props.dataCountry || {};
 		this.continent_not_allowed = props.continent_not_allowed || [];
 		this.country_not_allowed = props.country_not_allowed || [];
@@ -12,14 +12,14 @@ class kkkChat {
 
 
 		this.country_not_allowed.forEach(function(co){
-			console.log(application.dataCountry.country_code, co)
-			if(application.dataCountry.country_code === co){
-				application.activate = false;
+			console.log(_app.dataCountry.country_code, co)
+			if(_app.dataCountry.country_code === co){
+				_app.activate = false;
 			}
 		})
 		this.continent_not_allowed.forEach(function(continent){
-			if(application.dataCountry.continent_code === continent){
-				application.activate = false;
+			if(_app.dataCountry.continent_code === continent){
+				_app.activate = false;
 			}
 		})
 
