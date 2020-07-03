@@ -12,7 +12,6 @@ class kkkChat {
 
 
 		this.country_not_allowed.forEach(function(co){
-			console.log(_app.dataCountry.country_code, co)
 			if(_app.dataCountry.country_code === co){
 				_app.activate = false;
 			}
@@ -68,8 +67,9 @@ class kkkChat {
 		cssElement.innerHTML = css;
 		document.head.appendChild(cssElement);
 	}
-	layout(){
-		var html = `<a style="text-decoration:none;color:#000;" href="${this.url}" rel="noreferrer, noopener" aria-hidden="true">
+	layout(url){
+		url = url || this.url;
+		var html = `<a onclick="onclickKKKChat(this)" style="text-decoration:none;color:#000;" href="${url}" rel="noreferrer, noopener" aria-hidden="true">
 				<table class="kkkbn" aria-hidden="true">
 					<tr>
 						<td >
@@ -96,7 +96,8 @@ class kkkChat {
 		var app = this;
 		this.css();
 		this.targets.forEach(function( target ){
-			target.innerHTML = app.layout();
+			var url = target.getAttribute("data-url");
+			target.innerHTML = app.layout(url);
 		})
 	}
 }
