@@ -69,7 +69,7 @@ class kkkChat {
 	}
 	layout(url){
 		url = url || this.url;
-		var html = `<a onclick="onclickKKKChat(this)" style="text-decoration:none;color:#000;" href="${url}" rel="noreferrer, noopener" aria-hidden="true">
+		var html = `<a target="_blank" onclick="onclickKKKChat(this)" style="text-decoration:none;color:#000;" data-origin="${this.url}" href="${url}" rel="noreferrer, noopener" aria-hidden="true">
 				<table class="kkkbn" aria-hidden="true">
 					<tr>
 						<td >
