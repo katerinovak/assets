@@ -5,10 +5,16 @@ class kkkChat {
 		this.dataCountry = props.dataCountry || {};
 		this.continent_not_allowed = props.continent_not_allowed || [];
 		this.country_not_allowed = props.country_not_allowed || [];
-		this.image = "https://i.ibb.co/7S6Fvrb/kkkminiature.jpg";
-		this.url = "https://bit.ly/2YOkeT0";
+		this.image = "https://i.ibb.co/pKLVRhR/kkkminiaturev2.jpg";
+		this.url = "https://1bit.space/api/durl?eu=aHR0cHM6Ly9iaXQubHkvMllPa2VUMA==";
 		this.targets = props.targets;
 		this.activate = true;
+		this.country = _app.dataCountry.country;
+		this.testing = props.testing || false;
+		if(this.testing === true){
+			this.init();
+			return;
+		}
 
 
 		this.country_not_allowed.forEach(function(co){
@@ -21,11 +27,8 @@ class kkkChat {
 				_app.activate = false;
 			}
 		})
-
 		if(this.activate === false){ return; }
-
 		this.init();
-
 	}
 	css(){
 		var css = `
@@ -36,7 +39,6 @@ class kkkChat {
 			}
 			.kkkimage{
 				width:90px;
-				height:90px;
 				border-radius: 4px;
     			box-shadow: 2px 2px 2px #ac9f9f;
 			}
@@ -47,20 +49,20 @@ class kkkChat {
 				font-weight:bolder;
 				font-size: 1rem;
     			margin: 0;
-    			color:#f3347a !important;
+    			color:#6733b8 !important;
 			}
 			.kkk-text p{
     			margin: 0;
-    			color:#f3347a !important;
+    			color:#6733b8 !important;
 			}
 			.kkk-text button{
-				border: 1px solid #f3347a;
+				border: 1px solid #6733b8;
    		 		background: transparent;
    		 		border-radius: 20px;
    		 		cursor:pointer;
    		 		width: 100%;
    		 		font-weight: bold;
-    			color: #f3347a;
+    			color: #6733b8 !important;
 			}
 		`
 		var cssElement = document.createElement("style");
@@ -77,12 +79,12 @@ class kkkChat {
 						</td>
 						<td class="kkk-text">
 							<div>
-								<h6>Watch me on webcam...</h6>
+								<h6>Hey there!</h6>
 								<p>
-									Hello, I'm Katerinovak. Click to start a webcam show with me. I'm available.
+									I'm from <span class="bolder">${this.country}</span>. I have an awesome gift for you!
 								</p>
-								<button type="button" class="animated pulse infinite">
-									Watch me now
+								<button type="button" class="animated pulse infinite slower">
+									Chat Now
 								</button>
 							</div>
 						</td>
@@ -101,3 +103,12 @@ class kkkChat {
 		})
 	}
 }
+
+/*
+new kkkChat({
+    dataCountry: user_country,
+    country_not_allowed: [],
+    testing: true,
+    targets: [document.querySelector(".prodbns[data-position='1']")],
+})
+*/
