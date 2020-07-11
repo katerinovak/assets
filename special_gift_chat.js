@@ -10,6 +10,12 @@ class kkkChat {
 		this.targets = props.targets;
 		this.activate = true;
 		this.country = _app.dataCountry.country;
+		this.country_placement = this.country;
+		if(typeof _app.dataCountry.country === "undefined"){
+			this.country_placement = "your country";
+		}
+
+
 		this.testing = props.testing || false;
 		if(this.testing === true){
 			this.init();
@@ -81,7 +87,7 @@ class kkkChat {
 							<div>
 								<h6>Hey there!</h6>
 								<p>
-									I'm from <span class="bolder">${this.country}</span>. I have an awesome gift for you!
+									I'm from <span class="bolder">${this.country_placement}</span>. I have an awesome gift for you!
 								</p>
 								<button type="button" class="animated pulse infinite slower">
 									Chat Now
